@@ -18,9 +18,13 @@
 		background-color: #292;
 	}
 
-	#animateme.shake[kframe="1"]{ top: 30px; }
-	#animateme.shake[kframe="2"]{ top: 50px; }
-	#animateme.shake[kframe="3"]{ top: 70px; }
+	.shake[data-kframe="1"]{ top: 30px !important; }
+	.shake[data-kframe="2"]{ top: 20px !important; }
+	.shake[data-kframe="3"]{ top: 30px !important; }
+	.shake[data-kframe="4"]{ top: 50px !important; }
+	.shake[data-kframe="5"]{ top: 70px !important; }
+	.shake[data-kframe="6"]{ top: 80px !important; }
+	.shake[data-kframe="7"]{ top: 70px !important; }
 
 	</style>
 </head>
@@ -30,7 +34,7 @@
 
 <script>
 	animate(document.getElementById('animateme'),'shake',{
-		steps:3,
+		steps:7,
 		repeat:20,
 		duration:100,
 		delay:2000

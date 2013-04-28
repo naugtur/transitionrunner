@@ -35,10 +35,10 @@ var animate = (function(){
 		function next(){
 			stepCounter++;
 			if(stepCounter<=S.steps){
-				element.setAttribute('kframe',stepCounter);
+				element.setAttribute('data-kframe',stepCounter);
 				setTimeout(next,S.duration);
 			}else{
-				element.removeAttribute('kframe');
+				element.removeAttribute('data-kframe');
 				if(repeats<S.repeat){
 					setTimeout(run,S.delay);			
 				}
