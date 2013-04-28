@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+	<script src="trun.js"></script>
+	<style>
+	#animateme{
+		position:absolute;
+		top: 50px;
+		left: 50px;
+		width: 50px;
+		height: 50px;
+		background-color: #222;
+	}
+
+	#animateme.shake{
+		background-color: #292;
+	}
+
+	#animateme.shake[kframe="1"]{ top: 30px; }
+	#animateme.shake[kframe="2"]{ top: 50px; }
+	#animateme.shake[kframe="3"]{ top: 70px; }
+
+	</style>
+</head>
+<body>
+	
+	<div id="animateme">wooo</div>
+
+<script>
+	animate(document.getElementById('animateme'),'shake',{
+		steps:3,
+		repeat:20,
+		duration:100,
+		delay:2000
+	})
+</script>
+</body>
+</html>
