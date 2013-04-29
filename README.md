@@ -7,9 +7,10 @@ This is a tiny JavaScript tool to enable you to define keyframes in CSS and make
 
 ##usage:
 
-simle animation
+ - simple animation
+
 animates through keyframes defined in CSS
-3 frames by default
+(3 frames by default)
 
 	//js
 	animate(element,'myAnimationClass');
@@ -18,7 +19,7 @@ animates through keyframes defined in CSS
 	.myAnimationClass[data-kframe=2] { top: 42% !important; }
 	.myAnimationClass[data-kframe=3] { top: 44% !important; }
 
-other options
+ - other options
 
 
 	//js
@@ -29,7 +30,7 @@ other options
 		repeat: 5 //how many runs of animation
 		});
 
-run animation again
+ - run animation again
 
 	//js
 
