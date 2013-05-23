@@ -5,6 +5,8 @@ It's always a choice between a bloated JavaScript animation library that works i
 
 This is a tiny JavaScript tool to enable you to define keyframes in CSS and make it run with JavaScript. You get a simple and powerful CSS animation feature on new browsers that falls back to runing only the keyframes in a browser with no transition support.
 
+Simplest demo: http://naugtur.github.io/transitionrunner/
+
 ##usage:
 
  - simple animation
