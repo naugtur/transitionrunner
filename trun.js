@@ -2,7 +2,7 @@ var animate = (function(){
 	"use strict";
 
 	var domPrefixes = 'webkit Moz O ms Khtml'.split(' '),
-	trans  = '',support=false,
+	trans  = '',
 	elm = document.createElement('div');
 
 	if( elm.style.transition ) { 
@@ -18,8 +18,7 @@ var animate = (function(){
 
 	return function(element,animationName,S){
 
-		var timeskip=0,stepCounter,repeats=0,duration=100,
-		dynamics=null,currentTimer;
+		var stepCounter,repeats=0,currentTimer;
 
 		S || (S={});
 		S.steps || (S.steps=3);

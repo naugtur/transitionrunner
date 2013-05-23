@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>demo</title>
-	<script src="trun.js"></script>
+	<script src="trun.min.js"></script>
 	<style>
 	#animateme{
 		position:absolute;
@@ -33,7 +33,7 @@
 	<div id="animateme">wooo</div>
 
 <script>
-	animate(document.getElementById('animateme'),'shake',{
+	var anim = animate(document.getElementById('animateme'),'shake',{
 		steps:7,
 		repeat:20,
 		duration:100,
