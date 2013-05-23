@@ -44,3 +44,11 @@ js
          duration:300 //frame duration 
          repeat: 5 //how many runs of animation
          })
+
+ - stop animation while it's going
+ 
+js
+
+     var anim_runner = animate(element,'myAnimation');
+     //... later
+     anim_runner.stop();    

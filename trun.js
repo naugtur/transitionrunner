@@ -19,7 +19,7 @@ var animate = (function(){
 	return function(element,animationName,S){
 
 		var timeskip=0,stepCounter,repeats=0,duration=100,
-		dynamics=null;
+		dynamics=null,currentTimer;
 
 		S || (S={});
 		S.steps || (S.steps=3);
@@ -36,11 +36,11 @@ var animate = (function(){
 			stepCounter++;
 			if(stepCounter<=S.steps){
 				element.setAttribute('data-kframe',stepCounter);
-				setTimeout(next,S.duration);
+				currentTimer = setTimeout(next,S.duration);
 			}else{
 				element.removeAttribute('data-kframe');
 				if(repeats<S.repeat){
-					setTimeout(run,S.delay);			
+					currentTimer = setTimeout(run,S.delay);			
 				}
 			}
 		}
@@ -56,9 +56,14 @@ var animate = (function(){
 			next();
 
 		}
-	setTimeout(run,S.delay); //skip to the moment after all methods are called
+		function stop(){
+			clearTimeout(currentTimer);
+			element.removeAttribute('data-kframe');
+		}
+	currentTimer = setTimeout(run,S.delay); //skip to the moment after all methods are called
 	return {
-		run:run		
+		run:run,
+		stop:stop
 	}
 
 };
