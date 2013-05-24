@@ -53,4 +53,23 @@ js
 
      var anim_runner = animate(element,'myAnimation');
      //... later
-     anim_runner.stop();    
+     anim_runner.stop();   
+
+
+##easing
+
+Transitionrunner's settings allow to set `duration` as a number, so the animation loop is linear. But easing is about speed, not time. 
+
+If `v = s/t` and `t` is constant, then you can create easing by changing the distance. 
+
+Annotated CSS from the demo:
+
+    .shake { top: 50px; } /*initial*/
+    .shake[data-kframe="1"]{ top: 30px !important; } /*20px move*/
+    .shake[data-kframe="2"]{ top: 20px !important; } /*10px move*/
+    .shake[data-kframe="3"]{ top: 30px !important; } /*10px move back*/
+    .shake[data-kframe="4"]{ top: 50px !important; } /*20px move back*/
+    .shake[data-kframe="5"]{ top: 70px !important; } /*20px move*/
+    .shake[data-kframe="6"]{ top: 80px !important; } /*10px move*/
+    .shake[data-kframe="7"]{ top: 70px !important; } /*10px move back*/
+    /*and 20px back to default*/
