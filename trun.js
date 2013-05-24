@@ -18,7 +18,7 @@ var animate = (function(){
 
 	return function(element,animationName,S){
 
-		var stepCounter,repeats=0,currentTimer;
+		var stepCounter,repeats=0,currentTimer,initialClass;
 
 		S || (S={});
 		S.steps || (S.steps=3);
@@ -26,7 +26,9 @@ var animate = (function(){
 		S.delay || (S.delay=0);
 		S.repeat || (S.repeat=1);
 
-		element.setAttribute('class',element.getAttribute('class')+' '+animationName);
+                initialClass = element.getAttribute('class');
+                initialClass=(initialClass)?initialClass:'';
+		element.setAttribute('class',initialClass+' '+animationName);
 		if(trans !== ''){
 			element.style[trans] = 'All '+S.duration+'ms linear';
 		}
@@ -36,8 +38,9 @@ var animate = (function(){
 			if(stepCounter<=S.steps){
 				element.setAttribute('data-kframe',stepCounter);
 				currentTimer = setTimeout(next,S.duration);
-			}else{
+			}else{//end animation
 				element.removeAttribute('data-kframe');
+                                element.setAttribute('class',initialClass);
 				if(repeats<S.repeat){
 					currentTimer = setTimeout(run,S.delay);			
 				}
@@ -50,6 +53,7 @@ var animate = (function(){
 				overrideS.steps && (S.steps = overrideS.steps);
 				overrideS.repeat && (S.repeat = overrideS.repeat);
 			}
+                        element.setAttribute('class',initialClass+' '+animationName);
 			stepCounter=0;
 			repeats++;
 			next();
@@ -58,6 +62,7 @@ var animate = (function(){
 		function stop(){
 			clearTimeout(currentTimer);
 			element.removeAttribute('data-kframe');
+                        element.setAttribute('class',initialClass);
 		}
 	currentTimer = setTimeout(run,S.delay); //skip to the moment after all methods are called
 	return {
